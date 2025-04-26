@@ -1,4 +1,4 @@
-const components = ["CPU", "Motherboard", "GPU"]
+const components = ["CPU", "Motherboard",  "Cooler", "Memory", "GPU", "Storage", "PSU", "Case"];
 
 const button_html = "<button class=\"btn-2\">Choose Part</button>"
 const tbody = document.getElementById("tbody")

@@ -6,7 +6,7 @@ let footer = document.getElementById("footer");
 
 header.innerHTML=`
 <a href="index.html">
-    <img class="logo" src="img/logo.png" onclick="/">
+    <img class="logo" src="img/logo.webp" onclick="/">
 </a>
 <nav>
     <a href="index.html">Home</a>
