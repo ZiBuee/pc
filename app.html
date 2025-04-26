@@ -5,13 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Builder App</title>
     <script defer src="js/loader.js"></script>
+    <script defer src="js/app.js"></script>
     <link rel="stylesheet" href="css/global-style.css">
+    <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
     <header id="header"></header>
-    <section>
-        
-    </section>
-    <footer></footer>
+    <div class="app-ct1">
+        <table>
+            <thead>
+              <tr>
+                <th>Component</th>
+                <th style="padding-right: 0;">Price</th>
+              </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+            <tfoot>
+              <tr>
+                <td>Total</td>
+                <td id="total_price">$0</td>
+              </tr>
+            </tfoot>
+          </table> 
+        </div>
+    <footer id="footer"></footer>
 </body>
 </html>

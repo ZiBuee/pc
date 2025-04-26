@@ -11,7 +11,7 @@ header.innerHTML=`
 <nav>
     <a href="index.html">Home</a>
     <a href="app.html">Builder App</a>
-    <a href="pricing.html">Pricing</a>
+    <a href="products.html">Products</a>
 </nav>`;
 
 footer.innerHTML=`
