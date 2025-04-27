@@ -22,11 +22,28 @@ header {
     background-color:  #444;
 }
 footer {
-    margin-top: 30rem;
+    margin-top: 3rem;
     display: flex;
-    padding: 10px 20px;
+    flex-direction: column;
+    padding: 10px 5px;
     background-color:  #444;
+    text-align: center;
 }
+footer div {
+    display: flex;
+    margin: 0 auto;
+    column-gap: 150px;
+    text-align: left;
+}
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+footer div div {
+    display:  flex;
+    flex-direction: column;
+}
+
 nav {
     display: flex;
     gap: 15px;
@@ -93,4 +110,11 @@ nav a:hover {
     box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
     transform: translateY(10px);
     transition: 100ms;
+}
+
+.hidden {
+    display: none;
+}
+.active {
+    display: flex;
 }

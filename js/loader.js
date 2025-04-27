@@ -15,9 +15,33 @@ header.innerHTML=`
 </nav>`;
 
 footer.innerHTML=`
-<div>
-    <p>Contact</p>
-    <p>Abc</p>
-    <p>Abc</p>
-</div>
+    <div>
+        <div>
+            <p>PC-World</p>
+            <ul>
+                <li>Home</li>
+                <li>Builder App</li>
+                <li>Products</li>
+            </ul>
+        </div>
+        
+        <div>
+            <p>PC-World</p>
+            <ul>
+                <li>Home</li>
+                <li>Builder App</li>
+                <li>Products</li>
+            </ul>
+        </div>
+        
+        <div>
+            <p>PC-World</p>
+            <ul>
+                <li>Home</li>
+                <li>Builder App</li>
+                <li>Products</li>
+            </ul>
+        </div>
+    </div>
+    <p>©2025 PC-World, All rights reserved.</p>
 `

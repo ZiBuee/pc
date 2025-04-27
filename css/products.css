@@ -1,4 +1,4 @@
-.product-img {
+.img-square {
     width: 200px;
     height: 200px;
     object-fit: cover;
@@ -10,7 +10,8 @@
     flex-wrap: wrap;
 }
 
-.product {
+.ct-square {
+    text-align: center;
     display: flex;
     flex-direction: column;
     padding: 25px 25px 25px 25px;
@@ -18,7 +19,7 @@
     border-radius: 10px;
 }
 
-.product-btn {
+.btn-2 {
     margin: 1rem 1rem 0 1rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     border: none;
