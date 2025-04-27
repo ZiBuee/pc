@@ -74,10 +74,6 @@ nav a:hover {
     flex-direction: column;
 }
 
-.ct-smart {
-    display: flex;
-}
-
 
 .btn-1 {
     margin-top: 15rem;
@@ -112,9 +108,7 @@ nav a:hover {
     transition: 100ms;
 }
 
+
 .hidden {
     display: none;
-}
-.active {
-    display: flex;
 }

@@ -1,25 +1,27 @@
-.img-square {
-    width: 200px;
-    height: 200px;
+.prod-img {
+    width: 300px;
+    height: 300px;
     object-fit: cover;
 }
 
-.ct-smart {
+.prods-ct {
+    display: flex;
     margin: 50px 0 0 100px;
     gap: 50px;
     flex-wrap: wrap;
 }
 
-.ct-square {
+.prod-ct {
     text-align: center;
     display: flex;
     flex-direction: column;
     padding: 25px 25px 25px 25px;
     background-color: #222;
     border-radius: 10px;
+    width: 300px;
 }
 
-.btn-2 {
+.prod-btn {
     margin: 1rem 1rem 0 1rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     border: none;
@@ -29,4 +31,10 @@
     color: white;
     font-family: "rubik";
     font-weight: bold;
+}
+
+.price {
+    font-weight: bold;
+    text-align: left;
+    font-size: larger;
 }
