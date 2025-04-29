@@ -18,7 +18,8 @@ const cpus = [
     "AMD Ryzen 9 7950X Processor - 16 Cores, 32 Threads, up to 5.7GHz (Zen 4)",
     "Intel Core i5-14600K Processor - 14 Cores, 20 Threads, up to 5.3GHz (Unlocked, 14th Gen)",
     "Intel Core i3-12100 Processor - 4 Cores, 8 Threads, up to 4.3GHz (12th Gen)",
-    "AMD Ryzen 7 7800X3D Processor - 8 Cores, 16 Threads, up to 5.0GHz (3D V-Cache, Zen 4)"
+    "AMD Ryzen 7 7800X3D Processor - 8 Cores, 16 Threads, up to 5.0GHz (3D V-Cache, Zen 4)",
+    "i3 Blyat"
 ];
 
 let i;
@@ -27,7 +28,7 @@ for(i = 0; i< categories.length; i++) {
     categories_html.innerHTML+=`
 <div class="prod-ct">
     <img class="prod-img" src="img/categories/${categories[i].toLowerCase()}.jpg">
-    <button class="prod-btn" onclick="load('${categories[i].toLowerCase()}')">${categories[i]}</button>
+    <button class="main-btn" onclick="load('${categories[i].toLowerCase()}')">${categories[i]}</button>
 </div>
 `;
 }
@@ -51,7 +52,7 @@ function load(category) {
     <img class="prod-img" src="img/products/${category}/${img_name}">
     <p>${cpus[i]}</p>
     <p class="price">€199.99</p>
-    <button class="prod-btn">View</button>
+    <button class="main-btn">View</button>
 </div>`;
         }
     } else {

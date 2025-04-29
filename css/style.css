@@ -1,8 +1,10 @@
+/* https://coolors.co/b7b8b8-e0e1e1-232fb8-3d52d5 */
+
 body {
     margin: 0;
-    background-color: #333;
+    background-color: #E0E1E1;
     font-family: "rubik";
-    color: white;
+    color: black;
 }
 
 @font-face {
@@ -14,19 +16,25 @@ body {
     width: 64px;
 }
 
+header a {
+    text-decoration: none;
+    color: white;
+}
+
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color:  #444;
+    background-color:  #0a3782;
 }
 footer {
+    color: white;
     margin-top: 3rem;
     display: flex;
     flex-direction: column;
     padding: 10px 5px;
-    background-color:  #444;
+    background-color:  #0a3782;
     text-align: center;
 }
 footer div {
@@ -75,40 +83,40 @@ nav a:hover {
 }
 
 
-.btn-1 {
-    margin-top: 15rem;
-    margin-left: 5rem;
-    margin-right: 5rem;
-    padding: 17px 40px;
-    border-radius: 50px;
-    cursor: pointer;
-    border: 0;
-    background-color: white;
-    box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
-    letter-spacing: 1.5px;
-    font-size: 15px;
-    transition: all 0.5s ease;
-    text-decoration: none;
+.main-btn {
     text-align: center;
+    text-decoration: none;
+
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 2px;
+    color: black;
+    font-family: "rubik";
+    font-weight: bold;
+    border: 3px solid black;
+}
+
+.main-btn:hover {
+    background-color: black;
+    color: white;
 }
   
-.btn-1:hover {
-    letter-spacing: 3px;
-    background-color: hsl(261deg 80% 48%);
-    color: hsl(0, 0%, 100%);
-    box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
-}
-  
-.btn-1:active {
-    letter-spacing: 3px;
-    background-color: hsl(261deg 80% 48%);
-    color: hsl(0, 0%, 100%);
-    box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
-    transform: translateY(10px);
+.main-btn:active {
+    letter-spacing: 2px;
+    transform: translateY(2px);
     transition: 100ms;
 }
 
 
 .hidden {
     display: none;
+}
+
+.main-title {
+}
+
+.underlined {
+    border-bottom: 5px solid;
+    border-color: black;
 }

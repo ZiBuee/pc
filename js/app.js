@@ -1,6 +1,8 @@
-const components = ["CPU", "Motherboard",  "Cooler", "Memory", "GPU", "Storage", "PSU", "Case"];
+const overlay_html = document.getElementById("overlay")
 
-const button_html = "<button class=\"btn-2\">Choose Part</button>"
+const components = ["CPU", "Motherboard",  "Cooler", "Memory", "GPU", "Storage", "PSU", "Case", "Monitor"];
+
+
 const tbody = document.getElementById("tbody")
 let component
 for(let i = 0; i<components.length; i++) {
@@ -9,7 +11,11 @@ for(let i = 0; i<components.length; i++) {
     tbody.innerHTML+=
     `<tr>
     <td>${components[i]}</td>
-    <td id="${components[i]}">${button_html}</td>
+    <td id="${components[i]}"><button class=\"main-btn\" onclick=overlay(${components[i]})>Choose Part</button></td>
 </tr>
     `
+}
+
+function overlay {
+    overlay_html.classList.remove("hidden")
 }
