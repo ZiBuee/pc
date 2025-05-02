@@ -20,8 +20,17 @@ tfoot td{
     padding-top: 2rem;
 }
 
-.overlay {
+.overlay-section {
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
+}
+.overlay {
+    margin: 0 auto;
+    background-color: red;
+    width: 70%;
+    height: 70%;
+    z-index: 10;
 }
