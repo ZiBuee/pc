@@ -1,28 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PC-World</title>
-    <link rel="icon" type="image/png" href="/img/favicon.png">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>PC-World</title>
+        <link rel="icon" type="image/png" href="/img/favicon.png" />
 
-    <link rel="stylesheet" href="css/style.css">
-    <script defer src="js/loader.js"></script>
-    
+        <link rel="stylesheet" href="css/style.css" />
+        <script defer src="js/loader.js"></script>
+        <script defer src="js/products.js"></script>
+        <script src="js/query.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-    <link rel="prefetch" href="/img/logo.webp" as="image">
-    <link rel="prefetch" href="/fonts/Rubik-Regular.ttf" as="image">
-
-</head>
-<body>
-    <header id="header"></header>
-    <div class="ct-1">
-        <div class="ct-2">
-            <h1 class="main-title">Build <span class="underlined">your</span> pc now</h1>
-            <a class="main-btn" href="app.html">Build Now</a>
+        <link rel="prefetch" href="/img/logo.webp" as="image" />
+        <link rel="prefetch" href="/fonts/Rubik-Regular.ttf" as="image" />
+    </head>
+    <body>
+        <header id="header"></header>
+        <div class="ct-1">
+            <div class="ct-2">
+                <h1 class="main-title">
+                    Build <span class="underlined">your</span> pc now
+                </h1>
+                <a class="main-btn" href="app.html">Build Now</a>
+            </div>
+            <img class="big-img" src="img/pc.webp" alt="" />
         </div>
-        <img class="big-img" src="img/pc.webp" alt="">
-    </div>
-    <footer id="footer"></footer>
-</body>
+
+        <section id="categories-section">
+            <div class="prods-ct main-ct" id="categories"></div>
+        </section>
+
+        <footer id="footer"></footer>
+    </body>
 </html>

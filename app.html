@@ -1,36 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Builder App</title>
-    <script defer src="js/loader.js"></script>
-    <script defer src="js/app.js"></script>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/app.css">
-</head>
-<body>
-    <header id="header"></header>
-    <div class="app-ct1">
-        <table>
-            <thead>
-              <tr>
-                <th>Component</th>
-                <th style="padding-right: 0;">Price</th>
-              </tr>
-            </thead>
-            <tbody id="tbody"></tbody>
-            <tfoot>
-              <tr>
-                <td>Total</td>
-                <td id="total_price">$0</td>
-              </tr>
-            </tfoot>
-          </table> 
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Builder App</title>
+        <script defer src="js/loader.js"></script>
+        <script defer src="js/app.js"></script>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/app.css" />
+    </head>
+    <body>
+        <header id="header"></header>
+        <div class="app-ct1 main-ct">
+            <table class="shadow">
+                <thead>
+                    <tr>
+                        <th>Component</th>
+                        <th style="padding-right: 0">Price</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody"></tbody>
+                <tfoot>
+                    <tr>
+                        <td>Total</td>
+                        <td id="total_price">$0</td>
+                    </tr>
+                </tfoot>
+            </table>
         </div>
-    <section id="overlay-section" class="overlay-section" onclick="overlay(event)">
-      <div id="overlay" class="overlay" onclick=""></div>
-    </section>
-    <footer id="footer"></footer>
-</body>
+        <section
+            id="overlay-section"
+            class="overlay-section hidden"
+            onclick="overlay(event)"
+        >
+            <div id="overlay" class="overlay" onclick=""></div>
+        </section>
+        <footer id="footer"></footer>
+    </body>
 </html>

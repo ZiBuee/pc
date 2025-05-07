@@ -1,32 +1,3 @@
-body {
-    background-color: #f0f0f0;
-}
-
-
-.prod-img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.prods-ct {
-    display: flex;
-    margin: 50px 0 0 100px;
-    gap: 50px;
-    flex-wrap: wrap;
-}
-
-.prod-ct {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    padding: 25px 25px 25px 25px;
-    background-color: #E0E1E1;
-    box-shadow: 5px 5px black;
-    width: 300px;
-}
-
 .prod-btn {
     margin: 1rem 1rem 0 1rem;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;

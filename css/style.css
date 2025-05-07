@@ -1,8 +1,20 @@
-/* https://coolors.co/b7b8b8-e0e1e1-232fb8-3d52d5 */
+/* Body */
+html {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+*,
+*:before,
+*:after {
+    -webkit-box-sizing: inherit;
+    -moz-box-sizing: inherit;
+    box-sizing: inherit;
+}
 
 body {
     margin: 0;
-    background-color: #E0E1E1;
+    background-color: #f7f8f9;
     font-family: "rubik";
     color: black;
 }
@@ -16,6 +28,9 @@ body {
     width: 64px;
 }
 
+/* Body */
+
+/* Header/Footer */
 header a {
     text-decoration: none;
     color: white;
@@ -26,7 +41,7 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color:  #0a3782;
+    background-color: #0a3782;
 }
 footer {
     color: white;
@@ -34,7 +49,7 @@ footer {
     display: flex;
     flex-direction: column;
     padding: 10px 5px;
-    background-color:  #0a3782;
+    background-color: #0a3782;
     text-align: center;
 }
 footer div {
@@ -48,7 +63,7 @@ ul {
     padding-left: 0;
 }
 footer div div {
-    display:  flex;
+    display: flex;
     flex-direction: column;
 }
 
@@ -60,9 +75,11 @@ nav a {
     text-decoration: none;
 }
 nav a:hover {
-    color: #007BFF;
+    color: #007bff;
 }
+/* Header/Footer */
 
+/* Begin */
 .big-img {
     margin-left: auto;
     width: 50%;
@@ -82,32 +99,30 @@ nav a:hover {
     flex-direction: column;
 }
 
-
 .main-btn {
     text-align: center;
     text-decoration: none;
 
     border: none;
-    background-color: white;
+    background-color: #0a3782;
     cursor: pointer;
-    border-radius: 2px;
-    color: black;
+    border-radius: 10px;
+    color: white;
     font-family: "rubik";
     font-weight: bold;
-    border: 3px solid black;
+    border: none;
+    padding: 5px 0 5px;
 }
 
 .main-btn:hover {
-    background-color: black;
-    color: white;
+    background-color: #23527c;
 }
-  
+
 .main-btn:active {
     letter-spacing: 2px;
     transform: translateY(2px);
     transition: 100ms;
 }
-
 
 .hidden {
     display: none;
@@ -120,3 +135,33 @@ nav a:hover {
     border-bottom: 5px solid;
     border-color: black;
 }
+/* Begin */
+
+/* Products */
+.shadow {
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.06);
+}
+
+.main-ct {
+    display: flex;
+    background-color: #f7f8f9;
+}
+
+.prods-ct {
+    margin: 50px 0 0 100px;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+.prod-img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.prod-ct {
+    text-align: center;
+    flex-direction: column;
+    padding: 25px 25px 25px 25px;
+    width: 300px;
+}
+/* Products */
