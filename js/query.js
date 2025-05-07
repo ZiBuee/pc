@@ -6,7 +6,7 @@ function runQuery(query) {
     data: { runQuery: query },
     async: false,
     success: function (data) {
-      console.log(data);
+      //console.log(data);
       result = JSON.parse(data);
     },
   });
@@ -16,5 +16,8 @@ function runQuery(query) {
 //const productId = urlParams.get("id");
 
 function get_categories() {
-  runQuery("select Name from categories")
+  return runQuery("SELECT * FROM categories")
 }
+function get_category(PKCategory) {
+  return runQuery(`SELECT * FROM products WHERE FKCategory = ${PKCategory}`)
+} 
