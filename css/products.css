@@ -1,22 +1,13 @@
-.prod-btn {
-    margin: 1rem 1rem 0 1rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    border: none;
-    background-color: white;
-    cursor: pointer;
-    border-radius: 2px;
-    color: black;
-    font-family: "rubik";
-    font-weight: bold;
-    border: 3px solid black;
-}
-.prod-btn:hover {
-    background-color: black;
-    color: white;
-}
-
 .price {
     font-weight: bold;
     text-align: left;
     font-size: larger;
+}
+
+.product {
+    margin: 0 10% 0 10%;
+}
+.product img {
+    width: 500px;
+    height: auto;
 }

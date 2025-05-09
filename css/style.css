@@ -23,6 +23,10 @@ body {
     font-family: "rubik";
     src: url("../fonts/Rubik-Regular.ttf");
 }
+@font-face {
+    font-family: "archivo";
+    src: url("../fonts/ArchivoBlack-Regular.ttf");
+}
 
 .logo {
     width: 64px;
@@ -108,10 +112,10 @@ nav a:hover {
     cursor: pointer;
     border-radius: 10px;
     color: white;
-    font-family: "rubik";
+    font-family: "archivo";
     font-weight: bold;
     border: none;
-    padding: 5px 0 5px;
+    padding: 10px 0 10px;
 }
 
 .main-btn:hover {
@@ -147,21 +151,24 @@ nav a:hover {
     background-color: #f7f8f9;
 }
 
-.prods-ct {
+.prods {
     margin: 50px 0 0 100px;
     gap: 50px;
     flex-wrap: wrap;
 }
-.prod-img {
+.prod img {
     width: 300px;
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
 }
-.prod-ct {
+.prod {
     text-align: center;
     flex-direction: column;
     padding: 25px 25px 25px 25px;
-    width: 300px;
+    width: 350px;
+}
+.prod button {
+    margin: 20px 30px 0 30px;
 }
 /* Products */

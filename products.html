@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>products</title>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="js/jquery.js"></script>
         <script defer src="js/loader.js"></script>
         <script defer src="js/products.js"></script>
         <script src="js/query.js"></script>
@@ -15,15 +15,26 @@
     <body>
         <header id="header"></header>
 
-        <section id="categories-section">
-            <div class="prods-ct main-ct" id="categories"></div>
+        <section id="categories_section">
+            <div class="prods main-ct" id="categories"></div>
         </section>
 
-        <section class="hidden" id="products-section">
-            <button class="prod-btn" onclick="hide_products()">
-                Go back to categories
-            </button>
-            <div class="prods-ct main-ct" id="products"></div>
+        <section class="hidden" id="products_section">
+            <a class="main-btn" href="?">Go back</a>
+            <div class="prods main-ct" id="products"></div>
+        </section>
+
+        <section class="hidden" id="product_section">
+            <div class="main-ct product">
+                <a class="main-btn" id="goback_btn">Go back</a>
+                <img src="img/products/2/ASUS ROG Strix X670E-E Gaming WiFi.jpg" alt="">
+                <div>
+                    <h1 >AMD Ryzen 9 7950X Processor - 16 Cores, 32 Threads, up to 5.7GHz (Zen 4)</h1>
+                    <p>Unleash extreme performance with the AMD Ryzen 9 7950X. Featuring 16 cores and 32 threads, this processor delivers unparalleled power for gaming, streaming, and content creation. With boost clocks up to 5.7GHz and the cutting-edge Zen 4 architecture, enjoy seamless multitasking and lightning-fast responsiveness.</p>
+                    <p id="product_price"></p>
+                    <button class="main-btn">Add to cart</button>
+                </div>
+            </div>
         </section>
 
         <footer id="footer"></footer>

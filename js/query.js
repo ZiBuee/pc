@@ -19,5 +19,8 @@ function get_categories() {
   return runQuery("SELECT * FROM categories")
 }
 function get_category(PKCategory) {
-  return runQuery(`SELECT * FROM products WHERE FKCategory = ${PKCategory}`)
+  return runQuery(`SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = ${PKCategory}`)
 } 
+function get_product(PKProduct) {
+  return runQuery(`SELECT Name, Price, Image, Description FROM products WHERE PKProduct = ${PKProduct}`)
+}
