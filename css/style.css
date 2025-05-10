@@ -21,11 +21,11 @@ body {
 
 @font-face {
     font-family: "rubik";
-    src: url("../fonts/Rubik-Regular.ttf");
+    src: url("../fonts/rubik.ttf");
 }
 @font-face {
     font-family: "archivo";
-    src: url("../fonts/ArchivoBlack-Regular.ttf");
+    src: url("../fonts/archivo.ttf");
 }
 
 .logo {

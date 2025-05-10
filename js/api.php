@@ -10,12 +10,12 @@ $conn = new mysqli($host, $user, $pass, $dbname);
 
 $public_requests = [
     "get_categories" => "SELECT * FROM categories", 
-    "get_category" => "SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = arg1",
-    "get_product" => "SELECT Name, Price, Image, Description FROM products WHERE PKProduct = arg1",
+    "get_category" => "SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = 'arg1'",
+    "get_product" => "SELECT Name, Price, Image, Description FROM products WHERE PKProduct = 'arg1'",
     "create_account" => "INSERT INTO users (`Email`, `Password`) VALUES ('arg1', 'arg2');"
 ];
 $private_requests = [
-    "get_account" => "SELECT * FROM users WHERE email=arg1 AND password=arg2"
+    "get_account" => "SELECT * FROM users WHERE Email='arg1'"
 ];
 
 if (isset($_POST["request"])) {
@@ -31,19 +31,25 @@ if (isset($_POST["request"])) {
         runQuery($request);
     } else if (array_key_exists($request, $private_requests)) {
         $args = json_decode($_POST["args"]);
-        $password = runQuery("SELECT Password FROM users WHERE Email='$args[0]'");
-        echo $password;
+        $password = runQuery("SELECT Password FROM users WHERE Email='$args[0]'", 1);
+        $password = $password[0]["Password"];
         if ($password == $args[1]) {
-            echo "Valid Password =)";
+            $request = $private_requests[$request];
+            for ($i = 2; $i < count($args); $i++) {
+                $request = str_replace("arg" . ($i-1), $args[$i], $request);
+            }
+            runQuery($request);
+        } else {
+            echo "Error: Invalid Password";
         }
     } else {
-        echo "Unauthorized Query !";
+        echo "Error: Unauthorized Query !";
     }
 } else {
-    echo "No query provided";
+    echo "Error: No query provided";
 }
 
-function runQuery($query)
+function runQuery($query, $raw = null)
 {
     global $conn;
     $result = mysqli_query($conn, $query);
@@ -54,7 +60,11 @@ function runQuery($query)
     while ($row = mysqli_fetch_assoc($result)) {
         $data[] = $row;
     }
-    return json_encode($data);
+    if (isset($raw)) {
+        return $data;
+    } else {
+        echo json_encode($data);
+    }
 }
 
 ?>
