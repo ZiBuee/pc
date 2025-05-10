@@ -9,7 +9,7 @@ const current_category = url_params.get("category");
 const current_product = url_params.get("product")
 
 if (current_category == null) {
-  var categories = get_categories();
+  var categories = query("get_categories");
   for (let category of categories) {
     console.log(category)
     categories_html.innerHTML += `
@@ -20,7 +20,7 @@ if (current_category == null) {
   `;
   } 
 } else if (current_product == null) {
-  var products = get_category(current_category)
+  var products = query("get_category", [current_category])
   products_html.innerHTML = "";
   categories_section_html.classList.add("hidden");
   products_section_html.classList.remove("hidden");
@@ -37,7 +37,7 @@ if (current_category == null) {
 } else if (current_product != null) {
   products_section_html.classList.add("hidden");
   product_section_html.classList.remove("hidden");
-  var product = get_product(current_product)[0]
+  var product = query("get_product", [current_product])[0]
   console.log(product)
   product_section_html.querySelector("#product_section img").src=`img/products/${current_category}/${product["Image"]}`
   product_section_html.querySelector("#product_section h1").innerHTML=product["Name"]

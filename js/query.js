@@ -1,26 +1,18 @@
-function runQuery(query) {
+function query(request, args) {
   var result = "";
+  var data = { request: request}
+  if(args != null) {
+    data.args = JSON.stringify(args)
+  }
   $.ajax({
     type: "POST",
     url: "/js/api.php",
-    data: { runQuery: query },
+    data: data,
     async: false,
     success: function (data) {
-      //console.log(data);
+      console.log(data);
       result = JSON.parse(data);
     },
   });
   return result;
-}
-//const urlParams = new URLSearchParams(window.location.search);
-//const productId = urlParams.get("id");
-
-function get_categories() {
-  return runQuery("SELECT * FROM categories")
-}
-function get_category(PKCategory) {
-  return runQuery(`SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = ${PKCategory}`)
-} 
-function get_product(PKProduct) {
-  return runQuery(`SELECT Name, Price, Image, Description FROM products WHERE PKProduct = ${PKProduct}`)
 }

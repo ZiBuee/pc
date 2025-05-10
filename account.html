@@ -7,17 +7,20 @@
 
         <script src="js/jquery.js"></script>
         <script defer src="js/loader.js"></script>
-        <script defer src="js/products.js"></script>
         <script src="js/query.js"></script>
+        <script defer src="js/account.js"></script>
         <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/account.css" />
     </head>
     <body>
         <header id="header"></header>
 
-        <section id="login_section">
+        <section id="login_section" class="login">
             <div>
-                <input type="email" name="" id="">
-                <input type="password">
+                <input type="email" id="email">
+                <input type="password" id="password">
+                <button class="main-btn" onclick="login()">Login</button>
+                <button class="main-btn" onclick="create_account()">Sign Up</button>
             </div>
         </section>
 

@@ -1,0 +1,9 @@
+.login div {
+    display: grid;
+    justify-content: center;
+    margin-top: 100px;
+}
+.login {
+    height: 600px;
+    width: 100%;
+}
