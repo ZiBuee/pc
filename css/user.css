@@ -1,0 +1,27 @@
+section {
+    display: grid;
+    justify-content: center;
+}
+
+section div {
+    display: grid;
+    justify-content: center;
+}
+
+
+.user-section {
+    width: 100%;
+    height: 1000px;
+}
+
+.user-section div {
+    display: grid;
+    justify-content: center;
+}
+
+input {
+    border: 2px solid lightgray;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "archivo";
+}

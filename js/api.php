@@ -11,11 +11,14 @@ $conn = new mysqli($host, $user, $pass, $dbname);
 $public_requests = [
     "get_categories" => "SELECT * FROM categories", 
     "get_category" => "SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = 'arg1'",
-    "get_product" => "SELECT Name, Price, Image, Description FROM products WHERE PKProduct = 'arg1'",
+    "get_product" => "SELECT Name, Price, Image, Description, FKCategory FROM products WHERE PKProduct = 'arg1'",
     "create_account" => "INSERT INTO users (`Email`, `Password`) VALUES ('arg1', 'arg2');"
 ];
 $private_requests = [
-    "get_account" => "SELECT * FROM users WHERE Email='arg1'"
+    "get_account" => "SELECT * FROM users WHERE Email='arg1'",
+    "get_cart" => "SELECT Cart FROM users WHERE Email='arg1'",
+    "update_account" => "UPDATE users SET `Password` = 'arg2', `Name` = 'arg3', `LastName` = 'arg4', `Adress` = 'arg5', `City` = 'arg6' WHERE (`Email` = 'arg1')",
+    "update_cart" => "UPDATE users SET `Cart` = 'arg3' WHERE (`Email` = 'arg1');"
 ];
 
 if (isset($_POST["request"])) {
@@ -35,9 +38,11 @@ if (isset($_POST["request"])) {
         $password = $password[0]["Password"];
         if ($password == $args[1]) {
             $request = $private_requests[$request];
-            for ($i = 2; $i < count($args); $i++) {
-                $request = str_replace("arg" . ($i-1), $args[$i], $request);
+            for ($i = 0; $i < count($args); $i++) {
+                if ($args[$i] == "") { $args[$i] = null; }
+                $request = str_replace("arg" . ($i+1), $args[$i], $request);
             }
+            //echo $request;
             runQuery($request);
         } else {
             echo "Error: Invalid Password";
@@ -49,22 +54,24 @@ if (isset($_POST["request"])) {
     echo "Error: No query provided";
 }
 
-function runQuery($query, $raw = null)
+function runQuery($query, $no_echo = null)
 {
     global $conn;
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
+    } else if (str_contains($query, "UPDATE")) {
+        echo "Succesfull Update";
+        return 0;
     }
     $data = [];
     while ($row = mysqli_fetch_assoc($result)) {
         $data[] = $row;
     }
-    if (isset($raw)) {
+    if (isset($no_echo)) {
         return $data;
-    } else {
-        echo json_encode($data);
     }
+    echo json_encode($data);
 }
 
 ?>

@@ -42,7 +42,25 @@ if (current_category == null) {
   product_section_html.querySelector("#product_section img").src=`img/products/${current_category}/${product["Image"]}`
   product_section_html.querySelector("#product_section h1").innerHTML=product["Name"]
   product_section_html.querySelector("#product_section p").innerHTML=product["Description"]
+  document.getElementById("cart_button").setAttribute("onclick", `add_cart(${current_product})`)
   document.getElementById("product_price").innerHTML=`€${product["Price"]}`
   document.getElementById("goback_btn").href=`?category=${current_category}`
 
+}
+
+function add_cart(item) {
+  if (localStorage.getItem("user") == null) {
+    window.location.href="/user.html?cart"
+  } else {
+    var user_data = JSON.parse(localStorage.getItem("user"))
+    cart = query("get_cart", user_data)
+    if (cart[0]["Cart"] != null) {
+      cart = JSON.parse(cart[0]["Cart"])
+      cart.push(item)
+    } else {
+      cart = [item]
+    }
+    console.log(cart)
+    query("update_cart", [user_data[0], user_data[1], JSON.stringify(cart)])
+  }
 }

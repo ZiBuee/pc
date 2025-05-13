@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>products</title>
+
+        <script defer src="js/loader.js"></script>
+        <script src="js/query.js"></script>
+        <script defer src="js/user.js"></script>
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/user.css" />
+    </head>
+    <body>
+        <header id="header"></header>
+
+            <button onclick="logout()">Logout</button>
+
+            <section id="login_section" class="login">
+                    <input type="email" id="email">
+                    <input type="password" id="password">
+                    <button class="main-btn" onclick="login()">Login</button>
+                    <button class="main-btn" onclick="create_account()">Sign Up</button>
+                    <p></p>
+            </section>
+
+            <section id="user_section" class="hidden user">
+                <p>Logged in Succesfull !</p>
+                <div></div>
+                <button class="main-btn" onclick="update_account()">Save</button>
+            </section>
+
+            <section id="cart_section" class="">
+                <h1>Cart</h1>
+                <div id="products"></div>
+            </section>
+
+        <footer id="footer"></footer>
+    </body>
+</html>
