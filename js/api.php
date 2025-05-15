@@ -12,13 +12,15 @@ $public_requests = [
     "get_categories" => "SELECT * FROM categories", 
     "get_category" => "SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = 'arg1'",
     "get_product" => "SELECT Name, Price, Image, Description, FKCategory FROM products WHERE PKProduct = 'arg1'",
-    "create_account" => "INSERT INTO users (`Email`, `Password`) VALUES ('arg1', 'arg2');"
+    "create_account" => "INSERT INTO users (`Email`, `Password`) VALUES ('arg1', 'arg2');",
+    "get_new_products"  => "SELECT PKProduct, Name, Price, Image, FKCategory FROM products ORDER BY PKProduct DESC LIMIT 8;"
 ];
 $private_requests = [
     "get_account" => "SELECT * FROM users WHERE Email='arg1'",
     "get_cart" => "SELECT Cart FROM users WHERE Email='arg1'",
     "update_account" => "UPDATE users SET `Password` = 'arg2', `Name` = 'arg3', `LastName` = 'arg4', `Adress` = 'arg5', `City` = 'arg6' WHERE (`Email` = 'arg1')",
-    "update_cart" => "UPDATE users SET `Cart` = 'arg3' WHERE (`Email` = 'arg1');"
+    "update_cart" => "UPDATE users SET `Cart` = 'arg3' WHERE (`Email` = 'arg1');",
+    "su" => null
 ];
 
 if (isset($_POST["request"])) {
@@ -27,6 +29,9 @@ if (isset($_POST["request"])) {
         $request = $public_requests[$request];
         if(isset($_POST["args"])) {
             $args = json_decode($_POST["args"]);
+            if ($_POST["request"] == "create_account") {
+                $args[1] = password_hash($args[1], PASSWORD_BCRYPT);
+            }
             for ($i = 0; $i < count($args); $i++) {
                 $request = str_replace("arg" . ($i+1), $args[$i], $request);
             }
@@ -36,7 +41,19 @@ if (isset($_POST["request"])) {
         $args = json_decode($_POST["args"]);
         $password = runQuery("SELECT Password FROM users WHERE Email='$args[0]'", 1);
         $password = $password[0]["Password"];
-        if ($password == $args[1]) {
+        if (password_verify($args[1], $password)) {
+            if ($request == "su") {
+                $Is_Admin = runQuery("SELECT Is_Admin FROM users WHERE Email='$args[0]'", 1)[0]["Is_Admin"];
+                if ($Is_Admin==1) {
+                    runQuery($args[2]);
+                    exit();
+                } else {
+                    exit("Unauthorized Query!");
+                }
+            }
+            if($request == "update_account") {
+                $args[1] = password_hash($args[1], PASSWORD_BCRYPT);
+            }
             $request = $private_requests[$request];
             for ($i = 0; $i < count($args); $i++) {
                 if ($args[$i] == "") { $args[$i] = null; }
@@ -45,13 +62,13 @@ if (isset($_POST["request"])) {
             //echo $request;
             runQuery($request);
         } else {
-            echo "Error: Invalid Password";
+            exit("Invalid Password!");
         }
     } else {
-        echo "Error: Unauthorized Query !";
+        exit("Unknown Query!");
     }
 } else {
-    echo "Error: No query provided";
+    exit("No query provided!");
 }
 
 function runQuery($query, $no_echo = null)

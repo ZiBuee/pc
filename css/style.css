@@ -152,9 +152,10 @@ nav a:hover {
 }
 
 .prods {
-    margin: 50px 0 0 100px;
+    margin: 0 auto;
     gap: 50px;
     flex-wrap: wrap;
+    justify-content: center;
 }
 .prod img {
     width: 300px;
@@ -170,5 +171,44 @@ nav a:hover {
 }
 .prod button {
     margin: 20px 30px 0 30px;
+}
+
+
+.new-prod {
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 5rem auto;
+    background-color: white;
+    justify-content: center;
+}
+.white {
+    background-color: white;
+}
+
+.contact-form div {
+    display: grid;
+    grid-auto-flow: column;
+}
+.contact-form div div{
+    width: auto;
+    display: flex;
+    flex-direction: column;
+}
+.contact-form input {
+    width: auto;
+}
+.contact-form{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1250px;
+    display: grid;
+    flex-direction: column;
+}
+input {
+    border: 2px solid lightgray;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-family: "archivo";
 }
 /* Products */

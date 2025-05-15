@@ -48,6 +48,21 @@ if (current_category == null) {
 
 }
 
+if(window.location.pathname=="/index.html") {
+  console.log("abc")
+  let new_products_section = document.getElementById("new-products-section")
+  let new_products = query("get_new_products")
+  for(let product of new_products) {
+    new_products_section.innerHTML+=`
+<div class="prod main-ct white">
+    <img src="img/products/${product["FKCategory"]}/${product["Image"]}">
+    <p>${product["Name"]}</p>
+    <p class="price">€ ${product["Price"]}</p>
+    <a class="main-btn" href="?category=${product["FKCategory"]}&product=${product["PKProduct"]}">View</a>
+</div>`;
+  }
+}
+
 function add_cart(item) {
   if (localStorage.getItem("user") == null) {
     window.location.href="/user.html?cart"
