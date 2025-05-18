@@ -28,24 +28,22 @@ body {
     src: url("../fonts/archivo.ttf");
 }
 
-.logo {
-    width: 64px;
-}
-
 /* Body */
 
 /* Header/Footer */
-header a {
-    text-decoration: none;
-    color: white;
-}
-
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: #0a3782;
+}
+header img {
+    width: 64px;
+}
+header a {
+    text-decoration: none;
+    color: white;
 }
 footer {
     color: white;
@@ -55,6 +53,7 @@ footer {
     padding: 10px 5px;
     background-color: #0a3782;
     text-align: center;
+    overflow: hidden;
 }
 footer div {
     display: flex;
@@ -62,7 +61,7 @@ footer div {
     column-gap: 150px;
     text-align: left;
 }
-ul {
+footer ul {
     list-style-type: none;
     padding-left: 0;
 }
@@ -84,23 +83,43 @@ nav a:hover {
 /* Header/Footer */
 
 /* Begin */
-.big-img {
-    margin-left: auto;
-    width: 50%;
-    height: 50%;
-}
-
-.ct-1 {
+.home-ct {
     display: flex;
     padding-left: 10%;
     padding-right: 10%;
     padding-top: 5rem;
 }
+.home-ct div h1 {
+    font-size: 50px;
+}
 
-.ct-2 {
+.home-ct div {
     margin: 10rem auto;
     display: flex;
     flex-direction: column;
+}
+.home-ct img {
+    margin-left: auto;
+    width: 50%;
+    height: 50%;
+}
+.home-ct div a {
+    width: 75%;
+    margin: 0 auto;
+}
+@media (max-width: 1300px) {
+    .home-ct {
+        flex-wrap: wrap-reverse;
+    }
+    .home-ct img {
+        width: 100%;
+    }
+    .home-ct div {
+        margin: 0 auto;
+    }
+    .home-ct div h1 {
+        font-size: 40px;
+    }
 }
 
 .main-btn {
@@ -116,28 +135,30 @@ nav a:hover {
     font-weight: bold;
     border: none;
     padding: 10px 0 10px;
+    transition: 0.25s ease;
 }
 
 .main-btn:hover {
     background-color: #23527c;
+    letter-spacing: 2px;
+    transform: translateY(-3px);
 }
 
 .main-btn:active {
-    letter-spacing: 2px;
-    transform: translateY(2px);
-    transition: 100ms;
+    transform: translateY(5px);
 }
 
 .hidden {
     display: none;
 }
 
-.main-title {
-}
-
 .underlined {
     border-bottom: 5px solid;
     border-color: black;
+}
+.home-title {
+    text-align: center;
+    margin: 5rem 0 1rem;
 }
 /* Begin */
 
@@ -149,6 +170,10 @@ nav a:hover {
 .main-ct {
     display: flex;
     background-color: #f7f8f9;
+    gap: 30px;
+}
+.white {
+    background-color: white;
 }
 
 .prods {
@@ -157,58 +182,76 @@ nav a:hover {
     flex-wrap: wrap;
     justify-content: center;
 }
+.prod {
+    text-align: center;
+    flex-direction: column;
+    padding: 25px 25px 25px 25px;
+    width: 350px;
+    transition: 0.25s ease;
+    background-color: white;
+}
+.prod:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 0px 28px 0px rgba(0, 0, 0, 0.12);
+}
 .prod img {
     width: 300px;
     height: 300px;
     object-fit: cover;
     border-radius: 5px;
 }
-.prod {
-    text-align: center;
-    flex-direction: column;
-    padding: 25px 25px 25px 25px;
-    width: 350px;
-}
 .prod button {
     margin: 20px 30px 0 30px;
 }
-
 
 .new-prod {
     display: flex;
     flex-wrap: wrap;
     width: 80%;
-    margin: 5rem auto;
+    margin: 0 auto;
     background-color: white;
     justify-content: center;
 }
-.white {
+.contact-form{
+    margin: 3rem auto;
+    max-width: 75%;
+    display: grid;
+    grid-gap: 20px;
     background-color: white;
+    border-radius: 5px;
+    padding: 50px 50px 50px 50px;
 }
-
 .contact-form div {
     display: grid;
     grid-auto-flow: column;
+    grid-gap: 30px;
 }
+
 .contact-form div div{
     width: auto;
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 .contact-form input {
     width: auto;
 }
-.contact-form{
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1250px;
-    display: grid;
-    flex-direction: column;
-}
 input {
     border: 2px solid lightgray;
     margin-top: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-family: "archivo";
+}
+textarea {
+    border: 2px solid lightgray;
+    margin-top: 1.5rem;
+    font-size: 1rem;
+    font-family: "archivo";
+}
+
+.twoline {
+    min-height: 2.4em;
+    max-height: 2.4em;
+    overflow: hidden;
 }
 /* Products */

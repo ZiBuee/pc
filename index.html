@@ -8,53 +8,49 @@
 
         <link rel="stylesheet" href="css/style.css" />
         <script defer src="js/loader.js"></script>
-        <script defer src="js/products.js"></script>
         <script src="js/query.js"></script>
-
-        <link rel="prefetch" href="/img/logo.webp" as="image" />
-        <link rel="prefetch" href="/fonts/Rubik-Regular.ttf" />
-        <link rel="prefetch" href="/fonts/ArchivoBlack-Regular.ttf" />
+        <script defer src="js/products.js"></script>
     </head>
     <body>
-        <header id="header"></header>
-        <div class="ct-1">
-            <div class="ct-2">
-                <h1 class="main-title">
+        <header></header>
+
+        <div class="home-ct">
+            <div>
+                <h1>
                     Build <span class="underlined">your</span> pc now
                 </h1>
                 <a class="main-btn" href="app.html">Build Now</a>
             </div>
-            <img class="big-img" src="img/pc.webp" alt="" />
+            <img src="img/pc.webp" alt="Picture of a Gaming PC" />
         </div>
 
-        <section id="categories-section">
-            <div class="prods main-ct" id="categories"></div>
-        </section>
+        <h1 class="home-title">Browse Components</h1>
+        <section id="categories_section" class="prods main-ct"></section>
 
-        <section id="new-products-section" class="new-prod shadow">
-            
-        </section>
+        <h1 class="home-title">Our latest arrivals</h1>
+        <section id="new_products_section" class="new-prod shadow"></section>
 
-        <section class="contact-form">
+        
+        <section class="contact-form shadow">
                 <h1>Contact</h1>
                 <div>
                     <div>
                         <label>Full Name</label>
-                        <input type="name">
+                        <input type="text" placeholder="John Smith">
                     </div>
                     <div>
                         <label>Email</label>
-                        <input type="email">
+                        <input type="email" placeholder="john.smith@gmail.com">
                     </div>
                 </div>
                 
                 <label>Subject</label>
-                <input type="subject">
+                <input type="text" placeholder="My awesome Subject">
                 <label>Message</label>
-                <textarea name="" id=""></textarea>
-                <button>Send</button>
+                <textarea placeholder="Hi, I had a few questions concerning..."></textarea>
+                <button class="main-btn">Send</button>
         </section>
 
-        <footer id="footer"></footer>
+        <footer></footer>
     </body>
 </html>

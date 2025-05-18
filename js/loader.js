@@ -1,8 +1,6 @@
 // This script loads the Header and Footer
-
-let header = document.getElementById("header");
-let footer = document.getElementById("footer");
-
+let header = document.querySelector("header");
+let footer = document.querySelector("footer");
 
 header.innerHTML=`
 <a href="index.html">
@@ -19,9 +17,9 @@ header.innerHTML=`
 footer.innerHTML=`
     <div>
         <div>
-            <p>PC-World</p>
+            <p>Work Hours</p>
             <ul>
-                <li>Home</li>
+                <li>Monday-Friday: </li>
                 <li>Builder App</li>
                 <li>Products</li>
             </ul>

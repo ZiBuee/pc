@@ -24,11 +24,18 @@ $private_requests = [
 ];
 
 if (isset($_POST["request"])) {
+    if(isset($_POST["args"])) {
+        $args = json_decode($_POST["args"]);
+        if ($_POST["request"] == "su") {
+            is_safe($args, TRUE);
+        } else {
+            is_safe($args);
+        }
+    }
     $request = $_POST["request"];
     if (array_key_exists($request, $public_requests)) {
         $request = $public_requests[$request];
-        if(isset($_POST["args"])) {
-            $args = json_decode($_POST["args"]);
+        if(isset($args)) {
             if ($_POST["request"] == "create_account") {
                 $args[1] = password_hash($args[1], PASSWORD_BCRYPT);
             }
@@ -38,7 +45,6 @@ if (isset($_POST["request"])) {
         }
         runQuery($request);
     } else if (array_key_exists($request, $private_requests)) {
-        $args = json_decode($_POST["args"]);
         $password = runQuery("SELECT Password FROM users WHERE Email='$args[0]'", 1);
         $password = $password[0]["Password"];
         if (password_verify($args[1], $password)) {
@@ -89,6 +95,28 @@ function runQuery($query, $no_echo = null)
         return $data;
     }
     echo json_encode($data);
+}
+
+
+function is_safe($args, $su=null) {
+    // SQL injection patterns
+    $bad_patterns = [
+        '/\b(SELECT|INSERT|UPDATE|DELETE|DROP|UNION)\b/i', // SQL keywords
+        '/--/', // SQL comment
+        '/;/', // Semicolon
+        '/[\'"]\s*--/', // Quote with comment
+        '/\b(OR|AND)\s*1\s*=\s*1/i' // 1=1 tricks
+    ];
+    foreach ($args as $arg) {
+        foreach ($bad_patterns as $pattern) {
+            if (preg_match($pattern, $arg)) {
+                if (isset($su) && $arg == $args[2]) {
+                    continue; // Skip 3rd argument of SU request
+                }
+                exit("Fatal Error"); // Dont tell user we know he entered SQL
+            }
+        }
+    }
 }
 
 ?>

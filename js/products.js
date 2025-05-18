@@ -1,7 +1,6 @@
 const categories_section_html = document.getElementById("categories_section");
 const products_section_html = document.getElementById("products_section");
 const product_section_html = document.getElementById("product_section");
-const categories_html = document.getElementById("categories");
 const products_html = document.getElementById("products");
 
 const url_params = new URLSearchParams(window.location.search);
@@ -12,7 +11,7 @@ if (current_category == null) {
   var categories = query("get_categories");
   for (let category of categories) {
     console.log(category)
-    categories_html.innerHTML += `
+    categories_section_html.innerHTML += `
   <div class="prod main-ct shadow">
       <img src="img/categories/${category["Name"].toLowerCase()}.jpg">
       <a class="main-btn" href="products.html?category=${category["PKCategory"]}">${category["Name"]}</a>
@@ -29,8 +28,8 @@ if (current_category == null) {
       products_html.innerHTML += `
 <div class="prod main-ct shadow">
     <img src="img/products/${current_category}/${product["Image"]}">
-    <p>${product["Name"]}</p>
-    <p class="price">€ ${product["Price"]}</p>
+    <label>${product["Name"]}</label>
+    <label class="price">€ ${product["Price"]}</label>
     <a class="main-btn" href="?category=${current_category}&product=${product["PKProduct"]}">View</a>
 </div>`;
     }
@@ -48,16 +47,17 @@ if (current_category == null) {
 
 }
 
-if(window.location.pathname=="/index.html") {
+if(window.location.pathname=="/index.html" || window.location.pathname=="/") {
   console.log("abc")
-  let new_products_section = document.getElementById("new-products-section")
+  let new_products_section = document.getElementById("new_products_section")
   let new_products = query("get_new_products")
+  let i =0;
   for(let product of new_products) {
     new_products_section.innerHTML+=`
 <div class="prod main-ct white">
     <img src="img/products/${product["FKCategory"]}/${product["Image"]}">
-    <p>${product["Name"]}</p>
-    <p class="price">€ ${product["Price"]}</p>
+    <label class="twoline">${product["Name"]}</label>
+    <label class="price">€ ${product["Price"]}</label>
     <a class="main-btn" href="?category=${product["FKCategory"]}&product=${product["PKProduct"]}">View</a>
 </div>`;
   }
