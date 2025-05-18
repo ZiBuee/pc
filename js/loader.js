@@ -19,29 +19,34 @@ footer.innerHTML=`
         <div>
             <p>Work Hours</p>
             <ul>
-                <li>Monday-Friday: </li>
-                <li>Builder App</li>
-                <li>Products</li>
+                <li>Monday-Friday: 9-18h</li>
+                <li>Saturday: 10-18h</li>
+                <li>Sunday: Closed</li>
             </ul>
         </div>
         
         <div>
             <p>PC-World</p>
             <ul>
-                <li>Home</li>
-                <li>Builder App</li>
-                <li>Products</li>
-            </ul>
-        </div>
-        
-        <div>
-            <p>PC-World</p>
-            <ul>
-                <li>Home</li>
-                <li>Builder App</li>
-                <li>Products</li>
+                <li><a href="/index.html">Home</a></li>
+                <li><a href="/app.html">Builder App</a></li>
+                <li><a href="/products.html">Products</a></li>
+                <li><a href="/user.html">Account</a></li>
+                <li><a href="/user.html?cart">Cart</a></li>
             </ul>
         </div>
     </div>
     <p>©2025 PC-World, All rights reserved.</p>
 `
+
+
+/*
+        <div>
+            <p>PC-World</p>
+            <ul>
+                <li>Home</li>
+                <li>Builder App</li>
+                <li>Products</li>
+            </ul>
+        </div>
+*/
