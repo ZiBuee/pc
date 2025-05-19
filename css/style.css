@@ -45,6 +45,18 @@ header a {
     text-decoration: none;
     color: white;
 }
+header button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    gap: 6px;
+    flex-direction: column;
+}
+header button div {
+    background-color: white;
+    height: 3px;
+    width: 35px;
+}
 footer {
     color: white;
     margin-top: 3rem;

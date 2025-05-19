@@ -83,7 +83,7 @@ function runQuery($query, $no_echo = null)
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
-    } else if (str_contains($query, "UPDATE")) {
+    } else if (strpos($query, "UPDATE") !== false) {
         echo "Succesfull Update";
         return 0;
     }

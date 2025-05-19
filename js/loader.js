@@ -14,6 +14,30 @@ header.innerHTML=`
     <a href="user.html?cart">Cart</a>
 </nav>`;
 
+if (window.innerWidth <= 1300) {
+    header.innerHTML=`
+<div style="display: flex; justify-content: space-between;">
+    <a href="index.html">
+        <img class="logo" src="img/logo.webp" onclick="/">
+    </a>
+    <button onclick="menu()">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+</div>
+<nav class="hidden" style="flex-direction: column;">
+    <a href="index.html">Home</a>
+    <a href="app.html">Builder App</a>
+    <a href="products.html">Products</a>
+    <a href="user.html?account">Account</a>
+    <a href="user.html?cart">Cart</a>
+</nav>`;
+    header.style.flexDirection = "column";
+    header.style.display = "block";
+}
+
 footer.innerHTML=`
     <div>
         <div>
@@ -39,6 +63,14 @@ footer.innerHTML=`
     <p>©2025 PC-World, All rights reserved.</p>
 `
 
+
+function menu() {
+    if (header.querySelector("nav").classList.contains("hidden")) {
+        header.querySelector("nav").classList.remove("hidden")
+    } else {
+        header.querySelector("nav").classList.add("hidden")
+    }
+}
 
 /*
         <div>
