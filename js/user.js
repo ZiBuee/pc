@@ -51,7 +51,9 @@ function load_account() {
 function create_account() {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
-    query("create_account", [email, password])
+    user_data = [email, password]
+    query("create_account", user_data)
+    load_account()
 }
 
 function update_account() {

@@ -37,6 +37,8 @@ if (isset($_POST["request"])) {
         $request = $public_requests[$request];
         if(isset($args)) {
             if ($_POST["request"] == "create_account") {
+                $acc = runQuery("SELECT EXISTS (SELECT 1 FROM users WHERE Email = '$args[0]') AS value;", 1);
+                if($acc[0]["value"] == 1) { exit("Account already exists!");}
                 $args[1] = password_hash($args[1], PASSWORD_BCRYPT);
             }
             for ($i = 0; $i < count($args); $i++) {

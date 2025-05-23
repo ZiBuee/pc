@@ -30,7 +30,7 @@ if (current_category == null) {
     <img src="img/products/${current_category}/${product["Image"]}">
     <label>${product["Name"]}</label>
     <label class="price">€ ${product["Price"]}</label>
-    <a class="main-btn" href="?category=${current_category}&product=${product["PKProduct"]}">View</a>
+    <a class="main-btn" href="/products.html?category=${current_category}&product=${product["PKProduct"]}">View</a>
 </div>`;
     }
 } else if (current_product != null) {
@@ -43,7 +43,7 @@ if (current_category == null) {
   product_section_html.querySelector("#product_section p").innerHTML=product["Description"]
   document.getElementById("cart_button").setAttribute("onclick", `add_cart(${current_product})`)
   document.getElementById("product_price").innerHTML=`€${product["Price"]}`
-  document.getElementById("goback_btn").href=`?category=${current_category}`
+  document.getElementById("goback_btn").href=`/products.html?category=${current_category}`
 
 }
 
@@ -58,7 +58,7 @@ if(window.location.pathname=="/index.html" || window.location.pathname=="/") {
     <img src="img/products/${product["FKCategory"]}/${product["Image"]}">
     <label class="twoline">${product["Name"]}</label>
     <label class="price">€ ${product["Price"]}</label>
-    <a class="main-btn" href="?category=${product["FKCategory"]}&product=${product["PKProduct"]}">View</a>
+    <a class="main-btn" href="/products.html?category=${product["FKCategory"]}&product=${product["PKProduct"]}">View</a>
 </div>`;
   }
 }

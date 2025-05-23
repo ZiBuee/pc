@@ -7,3 +7,29 @@ main {
     display: flex;
     flex-direction: column;
 }
+
+.object_section {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.object_section div label {
+    display: inline-block;
+    min-width: 100px;
+}
+
+
+.prod_preview {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 100px;
+}
+.prod_preview img {
+    height: 100px;
+    width: 100px;
+}
+.price {
+    right: 50px;
+}
