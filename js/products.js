@@ -8,7 +8,7 @@ const current_category = url_params.get("category");
 const current_product = url_params.get("product")
 
 if (current_category == null) {
-  var categories = query("get_categories");
+  let categories = query("get_categories");
   for (let category of categories) {
     console.log(category)
     categories_section_html.innerHTML += `
@@ -19,7 +19,7 @@ if (current_category == null) {
   `;
   } 
 } else if (current_product == null) {
-  var products = query("get_category", [current_category])
+  let products = query("get_category", [current_category])
   products_html.innerHTML = "";
   categories_section_html.classList.add("hidden");
   products_section_html.classList.remove("hidden");
@@ -36,7 +36,7 @@ if (current_category == null) {
 } else if (current_product != null) {
   products_section_html.classList.add("hidden");
   product_section_html.classList.remove("hidden");
-  var product = query("get_product", [current_product])[0]
+  let product = query("get_product", [current_product])[0]
   console.log(product)
   product_section_html.querySelector("#product_section img").src=`img/products/${current_category}/${product["Image"]}`
   product_section_html.querySelector("#product_section h1").innerHTML=product["Name"]
@@ -67,7 +67,7 @@ function add_cart(item) {
   if (localStorage.getItem("user") == null) {
     window.location.href="/user.html?cart"
   } else {
-    var user_data = JSON.parse(localStorage.getItem("user"))
+    let user_data = JSON.parse(localStorage.getItem("user"))
     cart = query("get_cart", user_data)
     if (cart[0]["Cart"] != null) {
       cart = JSON.parse(cart[0]["Cart"])

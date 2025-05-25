@@ -1,6 +1,6 @@
 function query(request, args) {
-  var result = "";
-  var data = { request: request}
+  let result = "";
+  let data = { request: request}
   if(args != null) {
     data.args = JSON.stringify(args)
   }
