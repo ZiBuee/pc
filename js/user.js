@@ -3,7 +3,7 @@ const user_section = document.getElementById("user_section")
 const cart_section = document.getElementById("cart_section")
 
 const forbidden = ["PKUser", "Email", "Is_Admin", "Cart"]
-var user_data = JSON.parse(localStorage.getItem("user"))
+let user_data = JSON.parse(localStorage.getItem("user"))
 
 
 if (user_data == null) {
@@ -16,7 +16,7 @@ if (user_data == null) {
 function login() {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
-    var user = query("get_account", [email, password])
+    let user = query("get_account", [email, password])
     localStorage.setItem("user", JSON.stringify([user[0]["Email"], password]))
     if (typeof user != "string") {
         console.log("Succes")
@@ -28,7 +28,7 @@ function login() {
 }
 
 function load_account() {
-    var user = query("get_account", user_data)
+    let user = query("get_account", user_data)
     login_section.classList.add("hidden")
     user_section.classList.remove("hidden")
     let key;
@@ -57,8 +57,8 @@ function create_account() {
 }
 
 function update_account() {
-    var user = query("get_account", user_data)
-    var array = [user[0]["Email"]]
+    let user = query("get_account", user_data)
+    let array = [user[0]["Email"]]
     for (let i = 0; i < Object.keys(user[0]).length; i++) {
         key = Object.keys(user[0])[i]
         if (!forbidden.includes(key)) {
@@ -73,7 +73,7 @@ function load_cart() {
     cart_section.classList.remove("hidden")
     login_section.classList.add("hidden")
     console.log(user_data)
-    var cart = query("get_cart", user_data)[0]["Cart"]
+    let cart = query("get_cart", user_data)[0]["Cart"]
     if(cart != null) {
         cart = JSON.parse(cart)
         for(let i=0; i < cart.length; i++) {
