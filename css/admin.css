@@ -33,3 +33,29 @@ main {
 .price {
     right: 50px;
 }
+
+.orders {
+    display: flex;
+    flex-direction: column;
+}
+
+.order {
+    margin-bottom: 50px;
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px;
+    margin-right: 50px;
+}
+
+.order div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+}
+
+.order img {
+    height: 50px;
+    width: 50px;
+}
+

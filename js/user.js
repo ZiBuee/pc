@@ -88,6 +88,13 @@ function load_cart() {
 </div>`
         }
     }
+    cart_section.innerHTML+=`
+<button class="main-btn" onclick="order()">Order</button>`
+}
+
+function order() {
+    query("make_order", user_data)
+    //location.reload()
 }
 
 function delete_cart(item) {

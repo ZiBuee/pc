@@ -11,3 +11,25 @@
     width: 500px;
     height: auto;
 }
+
+.products-section { 
+    display: flex;
+    flex-direction: row;
+}
+
+
+.sort {
+    min-width: 300px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.price-inputs input {
+    width: 80px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+}

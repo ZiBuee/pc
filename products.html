@@ -14,17 +14,34 @@
     <body>
         <header></header>
 
-        <section class="prods main-ct" id="categories_section">
+        <a id="goback" href="/index.html">Go Back</a>
+
+        <section class="hidden" id="categories_section">
+            <h1>Categories</h1>
+            <div class="prods main-ct" id="categories"></div>
         </section>
 
         <section class="hidden" id="products_section">
-            <a class="main-btn" href="?">Go back</a>
-            <div class="prods main-ct" id="products"></div>
+            <div class="products-section">
+                <div class="sort">
+                    <h3>Sort</h3>
+                    <h4>Price Range</h4>
+                    <div class="price-inputs">
+                            <input type="number" id="min-price" value="10000" placeholder="Min">
+                            <input type="number" id="max-price" value="0" placeholder="Max">
+                    </div>
+                    <h4>Brand</h4>
+                    <div>
+                        <label><input type="checkbox" id="2">AMD</label>
+                    </div>
+                </div>
+                
+                <div class="prods main-ct" id="products"></div>
+            </div>
         </section>
 
         <section class="hidden" id="product_section">
             <div class="main-ct product">
-                <a class="main-btn" id="goback_btn">Go back</a>
                 <img src="img/products/2/ASUS ROG Strix X670E-E Gaming WiFi.jpg" alt="">
                 <div>
                     <h1 >AMD Ryzen 9 7950X Processor - 16 Cores, 32 Threads, up to 5.7GHz (Zen 4)</h1>

@@ -8,7 +8,6 @@ header.innerHTML=`
 </a>
 <nav>
     <a href="index.html">Home</a>
-    <a href="app.html">Builder App</a>
     <a href="products.html">Products</a>
     <a href="user.html?account">Account</a>
     <a href="user.html?cart">Cart</a>
@@ -29,7 +28,6 @@ if (window.innerWidth <= 1300) {
 </div>
 <nav class="hidden" style="flex-direction: column;">
     <a href="index.html">Home</a>
-    <a href="app.html">Builder App</a>
     <a href="products.html">Products</a>
     <a href="user.html?account">Account</a>
     <a href="user.html?cart">Cart</a>
@@ -53,7 +51,6 @@ footer.innerHTML=`
             <p>PC-World</p>
             <ul>
                 <li><a href="/index.html">Home</a></li>
-                <li><a href="/app.html">Builder App</a></li>
                 <li><a href="/products.html">Products</a></li>
                 <li><a href="/user.html">Account</a></li>
                 <li><a href="/user.html?cart">Cart</a></li>

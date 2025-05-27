@@ -1,6 +1,5 @@
 <?php
 
-
 $host = "5adb-ben.minoffice.be";
 $user = "miniemen_ben_5adb";
 $pass = "Miniemen123";
@@ -20,7 +19,8 @@ $private_requests = [
     "get_cart" => "SELECT Cart FROM users WHERE Email='arg1'",
     "update_account" => "UPDATE users SET `Password` = 'arg2', `Name` = 'arg3', `LastName` = 'arg4', `Adress` = 'arg5', `City` = 'arg6' WHERE (`Email` = 'arg1')",
     "update_cart" => "UPDATE users SET `Cart` = 'arg3' WHERE (`Email` = 'arg1');",
-    "su" => null
+    "make_order" => "INSERT INTO orders (`FKUser`, `Items`) SELECT PKUser, Cart FROM users WHERE Email='arg1';", //  UPDATE users SET Cart=NULL WHERE PKUser=(SELECT PKUser FROM users WHERE Email='arg1');"
+    "su" => null 
 ];
 
 if (isset($_POST["request"])) {
@@ -67,7 +67,6 @@ if (isset($_POST["request"])) {
                 if ($args[$i] == "") { $args[$i] = null; }
                 $request = str_replace("arg" . ($i+1), $args[$i], $request);
             }
-            //echo $request;
             runQuery($request);
         } else {
             exit("Invalid Password!");
@@ -85,8 +84,8 @@ function runQuery($query, $no_echo = null)
     $result = mysqli_query($conn, $query);
     if (!$result) {
         die("Query failed: " . mysqli_error($conn));
-    } else if (strpos($query, "UPDATE") !== false) {
-        echo "Succesfull Update";
+    } else if (strpos($query, "UPDATE") == true || strpos($query, "INSERT") == true) {
+        echo "Succes";
         return 0;
     }
     $data = [];
@@ -120,5 +119,4 @@ function is_safe($args, $su=null) {
         }
     }
 }
-
 ?>

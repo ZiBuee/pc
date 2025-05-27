@@ -7,6 +7,7 @@ const loc = window.location.search
 const Type = url_params.get("Type")
 const PK = url_params.get("PK")
 const PKValue = url_params.get("PKValue")
+const New = url_params.get("New")
 
 let item
 
@@ -16,7 +17,7 @@ if (user_data == null) {
 
 
 if (url_params.has("edit")) {
-    edit(Type, PK, PKValue)
+    edit()
 }  else if (loc=="?orders") {
     orders()
 }  else if (loc=="?categories") {
@@ -24,6 +25,8 @@ if (url_params.has("edit")) {
 }  else if(loc=="?products") {
     products()
 }
+
+document.getElementById("create_new").href=`?edit&Type=${window.location.search.slice(1)}&New=1`
 
 
 function create_category(category) {
@@ -44,33 +47,41 @@ function create_product(product) {
 </div>`
 }
 
-function create_order(order) {
-    const items = JSON.parse(order["Items"]);
+function create_orders(orders) {
     let productsHTML = "";
+    products_ids = ""
+    for (let order in orders) {
+        products_ids+=orders[order]["Items"].slice(1,-1)+","
+    }
+    products_ids = products_ids.slice(0,-1)
+    const products = su(`SELECT PKProduct, Name, Image, FKCategory FROM products WHERE PKProduct IN (${products_ids})`);
     
-    for (let PKProduct of items) {
-        const product = su(`SELECT Name, Image FROM products WHERE PKProduct = ${PKProduct}`)[0];
+    for (let order in orders) {
+        productsHTML+="<div class='order'>"
+        const items = JSON.parse(orders[order]["Items"]);
+        for (let i of items) {
+            product = products.find(p => p.PKProduct == String(i));
+            productsHTML += `
+            <div>
+                <img src="img/products/${product["FKCategory"]}/${product["Image"]}">
+                <span>${product["Name"]}</span>
+            </div>`;
+        }
         productsHTML += `
-        <div class="order-item">
-            <img src="img/products/${product["FKCategory"]}/${product["Image"]}">
-            <span>${product["Name"]}</span>
-        </div>`;
+        <label class="order-email">Customer: ${orders[order]["Email"]}</label>
+        `
+        productsHTML += "</div>"
     }
     
     object_section.innerHTML += `
-    <div class="order">
-        <div class="order-products">
-            ${productsHTML}
-        </div>
-        <label class="order-email">Customer: ${order["Email"]}</label>
+    <div class="orders">
+        ${productsHTML}
     </div>`;
 }
 
 function orders() {
     let orders = su("SELECT orders.Items, users.Email FROM orders JOIN users ON orders.FKUser = users.PKUser")
-    for (let order in orders) {
-        create_order(orders[order])
-    }
+    create_orders(orders)
 }
 function categories() {
     let categories = su("SELECT PKCategory, Name FROM categories")
@@ -88,10 +99,20 @@ function products() {
 
 
 function edit () {
-    item = su(`SELECT * FROM ${Type} WHERE ${PK} = ${PKValue}`)[0]
+    if (New == "1") {
+        table = su(`describe ${Type}`)
+        console.log(item)
+        item = {}
+        for (let key in table) {
+            item[table[key]["Field"]] = ""
+        }
+        console.log(item)
+    } else {
+        item = su(`SELECT * FROM ${Type} WHERE ${PK} = ${PKValue}`)[0]
+    }
     for(let key in item) {
         let value = item[key]
-        if (key.includes("PK")) { continue}
+        if (key.includes("PK")) continue;
         let field
         if (key == "Description") {
             field = `<textarea id="${key}">${value}</textarea>`
