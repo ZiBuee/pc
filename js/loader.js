@@ -37,18 +37,9 @@ if (window.innerWidth <= 1300) {
 }
 
 footer.innerHTML=`
-    <div>
+    <div class="footer-content">
         <div>
-            <p>Work Hours</p>
-            <ul>
-                <li>Monday-Friday: 9-18h</li>
-                <li>Saturday: 10-18h</li>
-                <li>Sunday: Closed</li>
-            </ul>
-        </div>
-        
-        <div>
-            <p>PC-World</p>
+            <h4>PC-World</h4>
             <ul>
                 <li><a href="/index.html">Home</a></li>
                 <li><a href="/products.html">Products</a></li>
@@ -57,16 +48,43 @@ footer.innerHTML=`
                 <li><a href="/admin.html?orders">Admin</a></li>
             </ul>
         </div>
+        
+        <div>
+            <h4>Work Hours</h4>
+            <ul>
+                <li>Monday-Friday: 9-18h</li>
+                <li>Saturday: 10-18h</li>
+                <li>Sunday: Closed</li>
+            </ul>
+        </div>
+        
+        <div>
+            <h4>Contact Us</h4>
+            <ul>
+                <li>Email: support@b3n.me</li>
+                <li>Phone: +32 498 38 38 38</li>
+                <li><a href="https://www.google.com/maps/place/North+Korea">Address: Diestsestraat 163, Leuven</a></li>
+            </ul>
+        </div>
     </div>
     <p>©2025 PC-World, All rights reserved.</p>
 `
 
 
 function menu() {
+    let nav_menu = header.querySelector("nav");
     if (header.querySelector("nav").classList.contains("hidden")) {
-        header.querySelector("nav").classList.remove("hidden")
+        nav_menu.style.height = "0px";
+        nav_menu.classList.remove("hidden")
+        nav_menu.style.transition = "height 0.3s ease-in-out";
+        setTimeout(() => {
+            nav_menu.style.height = nav_menu.scrollHeight + "px";
+        }, 100)
     } else {
-        header.querySelector("nav").classList.add("hidden")
+        nav_menu.style.height = "0px"
+        setTimeout(() => {
+            nav_menu.classList.add("hidden")
+        }, 300)
     }
 }
 

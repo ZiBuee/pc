@@ -2,6 +2,8 @@ const login_section = document.getElementById("login_section")
 const user_section = document.getElementById("user_section")
 const cart_section = document.getElementById("cart_section")
 
+const login_message = login_section.querySelector("#login_section p")
+
 const forbidden = ["PKUser", "Email", "Is_Admin", "Cart"]
 let user_data = JSON.parse(localStorage.getItem("user"))
 
@@ -17,7 +19,6 @@ function login() {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
     let user = query("get_account", [email, password])
-    let login_message = login_section.querySelector("#login_section p")
     if (typeof user != "string") {
         localStorage.setItem("user", JSON.stringify([user[0]["Email"], password]))
         console.log("Successfully logged in! Redirecting...")
@@ -57,7 +58,10 @@ function create_account() {
     let password = document.getElementById("password").value
     user_data = [email, password]
     query("create_account", user_data)
-    load_account()
+    login_message.innerHTML="Successfully created account! Redirecting..."
+    setTimeout(() => {
+        load_account()
+    }, 1000)
 }
 
 function update_account() {
