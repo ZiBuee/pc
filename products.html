@@ -17,7 +17,7 @@
         <a id="goback" href="/index.html">Go Back</a>
 
         <section class="hidden" id="categories_section">
-            <h1>Categories</h1>
+            <h1 class="title">Categories</h1>
             <div class="prods main-ct" id="categories"></div>
         </section>
 
@@ -31,9 +31,8 @@
                             <input type="number" id="max-price" value="0" placeholder="Max">
                     </div>
                     <h4>Brand</h4>
-                    <div>
-                        <label><input type="checkbox" id="2">AMD</label>
-                    </div>
+                    <div id="brands" class="brands"></div>
+                    <button class="main-btn" onclick="apply_filters()">Apply</button>
                 </div>
                 
                 <div class="prods main-ct" id="products"></div>
@@ -42,7 +41,7 @@
 
         <section class="hidden" id="product_section">
             <div class="main-ct product">
-                <img src="img/products/2/ASUS ROG Strix X670E-E Gaming WiFi.jpg" alt="">
+                <img src="img/products/2/ASUS ROG Strix X670E-E Gaming WiFi.jpg" class="big-prod-img" alt="">
                 <div>
                     <h1 >AMD Ryzen 9 7950X Processor - 16 Cores, 32 Threads, up to 5.7GHz (Zen 4)</h1>
                     <p>Unleash extreme performance with the AMD Ryzen 9 7950X. Featuring 16 cores and 32 threads, this processor delivers unparalleled power for gaming, streaming, and content creation. With boost clocks up to 5.7GHz and the cutting-edge Zen 4 architecture, enjoy seamless multitasking and lightning-fast responsiveness.</p>

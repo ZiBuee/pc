@@ -9,7 +9,7 @@ $conn = new mysqli($host, $user, $pass, $dbname);
 
 $public_requests = [
     "get_categories" => "SELECT * FROM categories", 
-    "get_category" => "SELECT PKProduct, Name, Price, Image FROM products WHERE FKCategory = 'arg1'",
+    "get_category" => "SELECT PKProduct, products.Name, Price, Image, brands.Name as Brand FROM products JOIN brands on products.FKBrand = brands.PKBrand WHERE products.FKCategory = 'arg1'",
     "get_product" => "SELECT Name, Price, Image, Description, FKCategory FROM products WHERE PKProduct = 'arg1'",
     "create_account" => "INSERT INTO users (`Email`, `Password`) VALUES ('arg1', 'arg2');",
     "get_new_products"  => "SELECT PKProduct, Name, Price, Image, FKCategory FROM products ORDER BY PKProduct DESC LIMIT 8;"

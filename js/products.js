@@ -22,9 +22,11 @@ if (current_category == null) {
   `;
   } 
 } else if (current_product == null) {
+  const brands_html = document.getElementById("brands")
+  let brands = []
   document.getElementById("goback").href=`?()`
-  min_price = document.getElementById("min-price");
-  max_price = document.getElementById("max-price");
+  let min_price = document.getElementById("min-price");
+  let max_price = document.getElementById("max-price");
   let products = query("get_category", [current_category])
   products_html.innerHTML = "";
   products_section_html.classList.remove("hidden");
@@ -37,16 +39,27 @@ if (current_category == null) {
       if (product["Price"] >= max_price.value) {
         max_price.value = product["Price"]
       }
-
+      if (!brands.includes(product["Brand"])) {
+        brands.push(product["Brand"])
+      }
       console.log(product)
       products_html.innerHTML += `
-<div class="prod main-ct shadow">
+<div class="prod main-ct shadow" value="${product["Brand"]}">
     <img src="img/products/${current_category}/${product["Image"]}">
     <label>${product["Name"]}</label>
     <label class="price">€ ${product["Price"]}</label>
     <a class="main-btn" href="/products.html?category=${current_category}&product=${product["PKProduct"]}">View</a>
 </div>`;
     }
+    for (let brand of brands) {
+      brands_html.innerHTML += `
+      <label><input type="checkbox" id="${brand}">${brand}</label>
+      `
+    }
+    const checkboxes = brands_html.querySelectorAll('input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', apply_filters);
+    });
 } else if (current_product != null) {
   product_section_html.classList.remove("hidden");
   let product = query("get_product", [current_product])[0]
@@ -90,5 +103,29 @@ function add_cart(item) {
     }
     console.log(cart)
     query("update_cart", [user_data[0], user_data[1], JSON.stringify(cart)])
+  }
+}
+
+
+
+function apply_filters() {
+  let selected_brands = document.querySelectorAll("input[type='checkbox']:checked")
+  let products = document.querySelectorAll(".prod")
+  if (selected_brands.length === 0) {
+    for (let product of products) {
+      product.style.display = "flex";
+    }
+  } else {
+    let brands = []
+    for (let brand of selected_brands) {
+      brands.push(brand.id)
+    }
+    for (let product of products) {
+      if (brands.includes(product.getAttribute("value"))) {
+        product.style.display = "flex";
+      } else {
+        product.style.display = "none";
+      }
+    }
   }
 }

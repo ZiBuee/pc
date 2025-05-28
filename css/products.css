@@ -7,6 +7,11 @@
 .product {
     margin: 0 10% 0 10%;
 }
+
+.big-prod-img {
+    width: 1000px !important;
+}
+
 .product img {
     width: 500px;
     height: auto;
@@ -29,7 +34,19 @@
     width: 80px;
 }
 
-h1 {
+.title {
     text-align: center;
     font-size: 2rem;
+}
+
+.brands {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+@media (max-width: 1300px) {
+    .products-section {
+        flex-direction: column;
+    }
 }

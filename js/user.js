@@ -17,13 +17,17 @@ function login() {
     let email = document.getElementById("email").value
     let password = document.getElementById("password").value
     let user = query("get_account", [email, password])
-    localStorage.setItem("user", JSON.stringify([user[0]["Email"], password]))
+    let login_message = login_section.querySelector("#login_section p")
     if (typeof user != "string") {
-        console.log("Succes")
-        location.reload()
+        localStorage.setItem("user", JSON.stringify([user[0]["Email"], password]))
+        console.log("Successfully logged in! Redirecting...")
+        login_message.innerHTML="Successfully logged in! Redirecting..."
+        setTimeout(() => {
+            location.reload()
+        }, 1000)
     } else {
         console.log("Invalid Credentials!")
-        login_section.querySelector("#login_section p").innerHTML="Invalid Credentials !"
+        login_message.innerHTML="Invalid Credentials !"
     }
 }
 

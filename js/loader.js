@@ -54,6 +54,7 @@ footer.innerHTML=`
                 <li><a href="/products.html">Products</a></li>
                 <li><a href="/user.html">Account</a></li>
                 <li><a href="/user.html?cart">Cart</a></li>
+                <li><a href="/admin.html?orders">Admin</a></li>
             </ul>
         </div>
     </div>
